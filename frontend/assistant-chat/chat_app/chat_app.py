@@ -15,7 +15,7 @@ def sidebar_item(text: str, icon: str, href: str) -> rx.Component:
             padding_y="0.75rem",
             align="center",
             style={
-                "_hover": {"background": "#353436", "color": "#fff"},
+                "_hover": {"background": "#2a1f52", "color": "#fff"},
                 "border-radius": "0.5em",
             },
         ),
@@ -41,22 +41,22 @@ def sidebar() -> rx.Component:
     return rx.box(
         rx.desktop_only(
             rx.vstack(
-                rx.hstack(
+                rx.box(
                     rx.image(
                         src="/logo.svg",
-                        width="320px",
+                        width="100%",
                         height="auto",
                     ),
-                    align="center",
-                    justify="start",
-                    padding_x="0.5rem",
+                    background="white",
+                    padding="0.5rem 0.75rem",
+                    border_radius="0.75rem",
                     width="100%",
                 ),
                 sidebar_items(),
                 spacing="5",
                 padding_x="1em",
                 padding_y="1.5em",
-                bg="#2d2c2f",
+                bg="#1a1139",
                 align="start",
                 height="100vh",
                 width="16em",
@@ -81,7 +81,7 @@ def sidebar() -> rx.Component:
                         height="100%",
                         width="20em",
                         padding="1.5em",
-                        bg="#2d2c2f",
+                        bg="#1a1139",
                     ),
                     width="100%",
                 ),
@@ -102,7 +102,7 @@ def assistant_page() -> rx.Component:
             rx.el.span("⏳", class_name="mr-2"),
             "Creating assistant based on your knowledge base…",
             class_name="mb-4 flex items-center rounded-xl px-4 py-3 text-sm",
-            style={"border": "1px solid #f0ddd0", "background": "#fdf0e8", "color": "#d4956a"},
+            style={"border": "1px solid #DDD6FE", "background": "#F5F3FF", "color": "#7C3AED"},
         ),
         rx.cond(
             LayoutState.assistant_created,
@@ -125,7 +125,7 @@ def assistant_page() -> rx.Component:
                         rx.el.span(
                             LayoutState.assistant_name,
                             class_name="font-semibold",
-                            style={"color": "#d4956a"},
+                            style={"color": "#7C3AED"},
                         ),
                         " is live and ready to go.",
                         class_name="text-xs text-gray-500 mt-0.5",
@@ -142,7 +142,7 @@ def assistant_page() -> rx.Component:
                     ),
                 ),
                 class_name="mb-4 flex items-center rounded-xl bg-white shadow-sm px-4 py-3",
-                style={"border": "1px solid #e8e4df"},
+                style={"border": "1px solid #E5E7EB"},
             ),
             rx.el.div(),
         ),
@@ -168,7 +168,7 @@ def assistant_page() -> rx.Component:
                         "text-gray-900 placeholder-gray-400 "
                         "focus:outline-none focus:ring-2 focus:bg-white transition"
                     ),
-                    style={"border": "1px solid #e8e4df", "background": "#faf8f5", "--tw-ring-color": "#d4956a"},
+                    style={"border": "1px solid #E5E7EB", "background": "#F9FAFB", "--tw-ring-color": "#7C3AED"},
                     on_change=LayoutState.set_assistant_name,
                     required=True,
                 ),
@@ -190,7 +190,7 @@ def assistant_page() -> rx.Component:
                         "text-gray-900 placeholder-gray-400 min-h-[72px] resize-none "
                         "focus:outline-none focus:ring-2 focus:bg-white transition"
                     ),
-                    style={"border": "1px solid #e8e4df", "background": "#faf8f5", "--tw-ring-color": "#d4956a"},
+                    style={"border": "1px solid #E5E7EB", "background": "#F9FAFB", "--tw-ring-color": "#7C3AED"},
                     on_change=LayoutState.set_assistant_description,
                     required=True,
                 ),
@@ -207,23 +207,23 @@ def assistant_page() -> rx.Component:
                     rx.upload(
                         rx.el.div(
                             rx.el.div(
-                                rx.icon("image-plus", size=22, color="#d4956a"),
+                                rx.icon("image-plus", size=22, color="#7C3AED"),
                                 class_name="mb-2",
                             ),
                             rx.el.p(
                                 rx.el.span(
                                     "Click to upload",
                                     class_name="font-semibold",
-                                    style={"color": "#d4956a"},
+                                    style={"color": "#7C3AED"},
                                 ),
                                 " or drag & drop",
                                 class_name="text-xs text-gray-500",
                             ),
                             rx.el.div(
-                                rx.el.span("PNG", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#faf8f5", "color": "#8e8ea0"}),
-                                rx.el.span("JPG", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#faf8f5", "color": "#8e8ea0"}),
-                                rx.el.span("GIF", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#faf8f5", "color": "#8e8ea0"}),
-                                rx.el.span("WebP", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#faf8f5", "color": "#8e8ea0"}),
+                                rx.el.span("PNG", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#F9FAFB", "color": "#8e8ea0"}),
+                                rx.el.span("JPG", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#F9FAFB", "color": "#8e8ea0"}),
+                                rx.el.span("GIF", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#F9FAFB", "color": "#8e8ea0"}),
+                                rx.el.span("WebP", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#F9FAFB", "color": "#8e8ea0"}),
                                 class_name="flex gap-1 flex-wrap justify-center mt-1.5",
                             ),
                             class_name="flex flex-col items-center justify-center h-full",
@@ -244,7 +244,7 @@ def assistant_page() -> rx.Component:
                             "cursor-pointer transition "
                             "flex items-center justify-center"
                         ),
-                        style={"border": "2px dashed #e8c4a8", "background": "#fdf8f3"},
+                        style={"border": "2px dashed #C4B5FD", "background": "#F5F3FF"},
                     ),
                     rx.el.ul(
                         rx.foreach(
@@ -253,7 +253,7 @@ def assistant_page() -> rx.Component:
                                 rx.el.span("📎 ", class_name="mr-1"),
                                 name,
                                 class_name="text-xs truncate",
-                                style={"color": "#d4956a"},
+                                style={"color": "#7C3AED"},
                             ),
                         ),
                         class_name="mt-1 list-none",
@@ -269,21 +269,21 @@ def assistant_page() -> rx.Component:
                     rx.upload(
                         rx.el.div(
                             rx.el.div(
-                                rx.icon("cloud-upload", size=22, color="#d4956a"),
+                                rx.icon("cloud-upload", size=22, color="#7C3AED"),
                                 class_name="mb-2",
                             ),
                             rx.el.p(
                                 rx.el.span(
                                     "Click to upload",
                                     class_name="font-semibold",
-                                    style={"color": "#d4956a"},
+                                    style={"color": "#7C3AED"},
                                 ),
                                 " or drag & drop",
                                 class_name="text-xs text-gray-500",
                             ),
                             rx.el.div(
-                                rx.el.span("PDF", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#faf8f5", "color": "#8e8ea0"}),
-                                rx.el.span("DOCX", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#faf8f5", "color": "#8e8ea0"}),
+                                rx.el.span("PDF", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#F9FAFB", "color": "#8e8ea0"}),
+                                rx.el.span("DOCX", class_name="px-1.5 py-0.5 rounded text-[10px] font-medium", style={"background": "#F9FAFB", "color": "#8e8ea0"}),
                                 class_name="flex gap-1 flex-wrap justify-center mt-1.5",
                             ),
                             class_name="flex flex-col items-center justify-center h-full",
@@ -299,7 +299,7 @@ def assistant_page() -> rx.Component:
                             "cursor-pointer transition "
                             "flex items-center justify-center"
                         ),
-                        style={"border": "2px dashed #e8c4a8", "background": "#fdf8f3"},
+                        style={"border": "2px dashed #C4B5FD", "background": "#F5F3FF"},
                     ),
                     rx.el.ul(
                         rx.foreach(
@@ -308,7 +308,7 @@ def assistant_page() -> rx.Component:
                                 rx.el.span("📄 ", class_name="mr-1"),
                                 name,
                                 class_name="text-xs truncate",
-                                style={"color": "#d4956a"},
+                                style={"color": "#7C3AED"},
                             ),
                         ),
                         class_name="mt-1 list-none",
@@ -333,7 +333,7 @@ def assistant_page() -> rx.Component:
                         "flex items-center justify-center "
                         "disabled:opacity-50 disabled:cursor-not-allowed"
                     ),
-                    style={"background": "#c47a50"},
+                    style={"background": "linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%)", "boxShadow": "0 4px 16px rgba(124,58,237,0.25)"},
                 ),
                 class_name="mt-auto flex-shrink-0 pt-2",
             ),
@@ -368,12 +368,12 @@ def assistant_page() -> rx.Component:
         rx.el.div(
             # Icon badge
             rx.el.div(
-                rx.icon("bot", size=24, color="#d4956a"),
+                rx.icon("bot", size=24, color="#7C3AED"),
                 class_name=(
                     "flex-shrink-0 w-12 h-12 rounded-xl "
                     "flex items-center justify-center mr-4"
                 ),
-                style={"background": "#fdf0e8"},
+                style={"background": "#F5F3FF"},
             ),
             # Text block
             rx.el.div(
@@ -388,16 +388,16 @@ def assistant_page() -> rx.Component:
                 # Feature pills
                 rx.el.div(
                     rx.el.span(
-                        rx.el.span("✦", class_name="mr-1.5", style={"color": "#d4956a"}),
+                        rx.el.span("✦", class_name="mr-1.5", style={"color": "#7C3AED"}),
                         "Custom knowledge base",
                         class_name="inline-flex items-center text-sm mr-6",
-                        style={"color": "#d4956a"},
+                        style={"color": "#7C3AED"},
                     ),
                     rx.el.span(
-                        rx.el.span("✦", class_name="mr-1.5", style={"color": "#d4956a"}),
+                        rx.el.span("✦", class_name="mr-1.5", style={"color": "#7C3AED"}),
                         "Instant deployment",
                         class_name="inline-flex items-center text-sm mr-6",
-                        style={"color": "#d4956a"},
+                        style={"color": "#7C3AED"},
                     ),
                     class_name="flex flex-wrap items-center mt-3",
                 ),
@@ -414,12 +414,12 @@ def assistant_page() -> rx.Component:
                     "hover:opacity-90 active:scale-[0.98] transition-all "
                     "cursor-pointer"
                 ),
-                style={"background": "#c47a50"},
+                style={"background": "#7C3AED"},
             ),
             class_name="relative z-10 flex items-center w-full",
         ),
         class_name="relative overflow-hidden rounded-2xl px-6 py-3 mb-3",
-        style={"background": "#faf8f5", "border": "1px solid #e8e4df"},
+        style={"background": "#F9FAFB", "border": "1px solid #E5E7EB"},
     )
 
     # ── Left hero panel ────────────────────────────────────────────
@@ -437,38 +437,38 @@ def assistant_page() -> rx.Component:
         rx.el.h2(
             "Build your AI Assistant",
             class_name="text-xl font-bold mb-2 leading-tight",
-            style={"color": "#1a1a2e"},
+            style={"color": "#ffffff"},
         ),
         rx.el.p(
             "Configure a smart assistant powered by your own knowledge base. "
             "Upload documents, set a persona, and deploy in minutes.",
             class_name="text-xs leading-relaxed mb-3",
-            style={"color": "#5a6078"},
+            style={"color": "rgba(255,255,255,0.8)"},
         ),
         # Feature bullets
         rx.el.ul(
             rx.el.li(
-                rx.el.span("✦", class_name="mr-2", style={"color": "#8b92a8"}),
+                rx.el.span("✦", class_name="mr-2", style={"color": "rgba(255,255,255,0.75)"}),
                 "Custom knowledge base",
                 class_name="flex items-center text-xs mb-2",
-                style={"color": "#5a6078"},
+                style={"color": "rgba(255,255,255,0.9)"},
             ),
             rx.el.li(
-                rx.el.span("✦", class_name="mr-2", style={"color": "#8b92a8"}),
+                rx.el.span("✦", class_name="mr-2", style={"color": "rgba(255,255,255,0.75)"}),
                 "Instant deployment",
                 class_name="flex items-center text-xs mb-2",
-                style={"color": "#5a6078"},
+                style={"color": "rgba(255,255,255,0.9)"},
             ),
             rx.el.li(
-                rx.el.span("✦", class_name="mr-2", style={"color": "#8b92a8"}),
+                rx.el.span("✦", class_name="mr-2", style={"color": "rgba(255,255,255,0.75)"}),
                 "No code required",
                 class_name="flex items-center text-xs",
-                style={"color": "#5a6078"},
+                style={"color": "rgba(255,255,255,0.9)"},
             ),
             class_name="list-none",
         ),
         class_name="rounded-2xl p-5 flex flex-col justify-center h-full",
-        style={"background": "#dde3f0"},
+        style={"background": "linear-gradient(135deg, #7C3AED 0%, #8B5CF6 20%, #9B6DFA 35%, #A97FFD 50%, #BB95FC 65%, #CEB2F7 80%, #D8C2F5 90%, #E4D3F5 100%)"},
     )
 
     # ── Full-page progress overlay ──────────────────────────────
@@ -482,12 +482,12 @@ def assistant_page() -> rx.Component:
                     # Animated icon
                     rx.el.div(
                         rx.el.div(
-                            rx.icon("bot", size=28, color="#d4956a"),
+                            rx.icon("bot", size=28, color="#7C3AED"),
                             class_name=(
                                 "w-16 h-16 rounded-2xl "
                                 "flex items-center justify-center mb-5"
                             ),
-                            style={"background": "#fdf0e8"},
+                            style={"background": "#F5F3FF"},
                         ),
                         class_name="flex justify-center",
                     ),
@@ -500,7 +500,7 @@ def assistant_page() -> rx.Component:
                         rx.el.p(
                             LayoutState.creation_progress.to(str) + "%",
                             class_name="text-2xl font-bold text-center mt-1",
-                            style={"color": "#d4956a"},
+                            style={"color": "#7C3AED"},
                         ),
                         class_name="mb-5",
                     ),
@@ -509,7 +509,7 @@ def assistant_page() -> rx.Component:
                         rx.el.div(
                             class_name="h-full rounded-full transition-all duration-500 ease-out",
                             style={
-                                "background": "#d4956a",
+                                "background": "#7C3AED",
                                 "width": LayoutState.creation_progress.to(str) + "%",
                             },
                         ),
@@ -530,7 +530,7 @@ def assistant_page() -> rx.Component:
                                     "w-7 h-7 rounded-full flex items-center justify-center",
                                     "w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center",
                                 ),
-                                style=rx.cond(LayoutState.creation_progress >= 30, {"background": "#d4956a"}, {}),
+                                style=rx.cond(LayoutState.creation_progress >= 30, {"background": "#7C3AED"}, {}),
                             ),
                             rx.el.span(
                                 "Upload",
@@ -539,7 +539,7 @@ def assistant_page() -> rx.Component:
                                     "text-xs font-medium mt-1.5",
                                     "text-xs text-gray-400 mt-1.5",
                                 ),
-                                style=rx.cond(LayoutState.creation_progress >= 30, {"color": "#d4956a"}, {}),
+                                style=rx.cond(LayoutState.creation_progress >= 30, {"color": "#7C3AED"}, {}),
                             ),
                             class_name="flex flex-col items-center",
                         ),
@@ -550,7 +550,7 @@ def assistant_page() -> rx.Component:
                                 "flex-1 h-0.5 mt-3.5",
                                 "flex-1 h-0.5 bg-gray-200 mt-3.5",
                             ),
-                            style=rx.cond(LayoutState.creation_progress >= 40, {"background": "#d4956a"}, {}),
+                            style=rx.cond(LayoutState.creation_progress >= 40, {"background": "#7C3AED"}, {}),
                         ),
                         # Chunking
                         rx.el.div(
@@ -565,7 +565,7 @@ def assistant_page() -> rx.Component:
                                     "w-7 h-7 rounded-full flex items-center justify-center",
                                     "w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center",
                                 ),
-                                style=rx.cond(LayoutState.creation_progress >= 50, {"background": "#d4956a"}, {}),
+                                style=rx.cond(LayoutState.creation_progress >= 50, {"background": "#7C3AED"}, {}),
                             ),
                             rx.el.span(
                                 "Chunking",
@@ -574,7 +574,7 @@ def assistant_page() -> rx.Component:
                                     "text-xs font-medium mt-1.5",
                                     "text-xs text-gray-400 mt-1.5",
                                 ),
-                                style=rx.cond(LayoutState.creation_progress >= 50, {"color": "#d4956a"}, {}),
+                                style=rx.cond(LayoutState.creation_progress >= 50, {"color": "#7C3AED"}, {}),
                             ),
                             class_name="flex flex-col items-center",
                         ),
@@ -585,7 +585,7 @@ def assistant_page() -> rx.Component:
                                 "flex-1 h-0.5 mt-3.5",
                                 "flex-1 h-0.5 bg-gray-200 mt-3.5",
                             ),
-                            style=rx.cond(LayoutState.creation_progress >= 60, {"background": "#d4956a"}, {}),
+                            style=rx.cond(LayoutState.creation_progress >= 60, {"background": "#7C3AED"}, {}),
                         ),
                         # Index
                         rx.el.div(
@@ -600,7 +600,7 @@ def assistant_page() -> rx.Component:
                                     "w-7 h-7 rounded-full flex items-center justify-center",
                                     "w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center",
                                 ),
-                                style=rx.cond(LayoutState.creation_progress >= 70, {"background": "#d4956a"}, {}),
+                                style=rx.cond(LayoutState.creation_progress >= 70, {"background": "#7C3AED"}, {}),
                             ),
                             rx.el.span(
                                 "Indexing",
@@ -609,7 +609,7 @@ def assistant_page() -> rx.Component:
                                     "text-xs font-medium mt-1.5",
                                     "text-xs text-gray-400 mt-1.5",
                                 ),
-                                style=rx.cond(LayoutState.creation_progress >= 70, {"color": "#d4956a"}, {}),
+                                style=rx.cond(LayoutState.creation_progress >= 70, {"color": "#7C3AED"}, {}),
                             ),
                             class_name="flex flex-col items-center",
                         ),
@@ -620,7 +620,7 @@ def assistant_page() -> rx.Component:
                                 "flex-1 h-0.5 mt-3.5",
                                 "flex-1 h-0.5 bg-gray-200 mt-3.5",
                             ),
-                            style=rx.cond(LayoutState.creation_progress >= 100, {"background": "#d4956a"}, {}),
+                            style=rx.cond(LayoutState.creation_progress >= 100, {"background": "#7C3AED"}, {}),
                         ),
                         # Done
                         rx.el.div(
@@ -697,7 +697,7 @@ def assistant_page() -> rx.Component:
             rx.el.div(),
         ),
         class_name="w-full p-4 h-screen overflow-y-auto flex flex-col",
-        style={"background": "#faf8f5"},
+        style={"background": "#F9FAFB"},
     )
 
     return rx.hstack(sidebar(), rx.box(content, width="100%"))
@@ -768,7 +768,7 @@ def agent_card(template: dict) -> rx.Component:
             "bg-white rounded-xl "
             "hover:shadow-md transition-shadow overflow-hidden flex flex-col cursor-pointer h-full"
         ),
-        style={"border": "1px solid #eee"},
+        style={"border": "1px solid #E5E7EB"},
         # Select the assistant when clicked
         on_click=ChatState.select_assistant(template.get("knowledge_base_id")),
     )
@@ -804,7 +804,7 @@ def new_agent_card() -> rx.Component:
                 "hover:bg-gray-50 transition-all "
                 "h-full min-h-[220px] flex items-center justify-center cursor-pointer"
             ),
-            style={"borderColor": "#e8e4df"},
+            style={"borderColor": "#E5E7EB"},
         ),
         href="/assistant-studio",
         class_name="block h-full",
@@ -837,7 +837,7 @@ def dashboard_page() -> rx.Component:
                     style={"color": "#1a1a2e"},
                 ),
                 class_name="flex items-center px-4 py-2 rounded-full w-64",
-                style={"background": "#f5f3f0", "border": "1px solid #e8e4df"},
+                style={"background": "#F3F4F6", "border": "1px solid #E5E7EB"},
             ),
             rx.link(
                 rx.el.button(
@@ -846,14 +846,14 @@ def dashboard_page() -> rx.Component:
                         "px-5 py-2.5 text-sm font-semibold text-white "
                         "rounded-lg hover:opacity-90 transition-opacity ml-4"
                     ),
-                    style={"background": "#c4561a"},
+                    style={"background": "#7C3AED"},
                 ),
                 href="/assistant-studio",
             ),
             class_name="flex items-center",
         ),
         class_name="flex items-center justify-between px-6 py-4 bg-white",
-        style={"borderBottom": "1px solid #eee"},
+        style={"borderBottom": "1px solid #E5E7EB"},
     )
 
     # ── Hero Section ───────────────────────────────────────────────
@@ -867,8 +867,8 @@ def dashboard_page() -> rx.Component:
                     "rounded-full mb-3"
                 ),
                 style={
-                    "color": "#c4561a",
-                    "background": "#fdf0e8",
+                    "color": "#7C3AED",
+                    "background": "#F5F3FF",
                 },
             ),
             rx.el.h1(
@@ -897,7 +897,7 @@ def dashboard_page() -> rx.Component:
                             "px-6 py-2.5 text-sm font-semibold text-white "
                             "rounded-full hover:opacity-90 transition-opacity cursor-pointer"
                         ),
-                        style={"background": "#c4561a"},
+                        style={"background": "#7C3AED"},
                     ),
                     href="/assistant-studio",
                 ),
@@ -908,7 +908,7 @@ def dashboard_page() -> rx.Component:
                             "px-6 py-2.5 text-sm font-semibold bg-white "
                             "rounded-full hover:bg-gray-50 transition-colors ml-3 cursor-pointer"
                         ),
-                        style={"color": "#1a1a2e", "border": "1px solid #e8e4df"},
+                        style={"color": "#1a1a2e", "border": "1px solid #E5E7EB"},
                     ),
                     href="#",
                 ),
@@ -930,7 +930,7 @@ def dashboard_page() -> rx.Component:
                     style={"color": "#8e8ea0"},
                 ),
                 class_name="text-center px-4 py-3 bg-white rounded-xl",
-                style={"border": "1px solid #e8e4df"},
+                style={"border": "1px solid #E5E7EB"},
             ),
             rx.el.div(
                 rx.el.p(
@@ -944,7 +944,7 @@ def dashboard_page() -> rx.Component:
                     style={"color": "#8e8ea0"},
                 ),
                 class_name="text-center px-4 py-3 bg-white rounded-xl",
-                style={"border": "1px solid #e8e4df"},
+                style={"border": "1px solid #E5E7EB"},
             ),
             rx.el.div(
                 rx.el.p(
@@ -958,7 +958,7 @@ def dashboard_page() -> rx.Component:
                     style={"color": "#8e8ea0"},
                 ),
                 class_name="text-center px-4 py-3 bg-white rounded-xl",
-                style={"border": "1px solid #e8e4df"},
+                style={"border": "1px solid #E5E7EB"},
             ),
             class_name="flex gap-3 z-10",
         ),
@@ -966,7 +966,7 @@ def dashboard_page() -> rx.Component:
             "relative flex flex-col lg:flex-row items-start lg:items-center justify-between "
             "gap-4 px-8 py-6 rounded-2xl mb-3 overflow-hidden"
         ),
-        style={"background": "#faf8f5"},
+        style={"background": "#F9FAFB"},
     )
 
     # ── Tab Navigation ─────────────────────────────────────────────
@@ -975,7 +975,7 @@ def dashboard_page() -> rx.Component:
             rx.el.button(
                 "All Agents",
                 class_name="px-5 py-2 text-sm font-semibold text-white rounded-full",
-                style={"background": "#c4561a"},
+                style={"background": "#7C3AED"},
             ),
             rx.el.button(
                 "Deployed",
@@ -983,7 +983,7 @@ def dashboard_page() -> rx.Component:
                     "px-5 py-2 text-sm font-medium bg-transparent "
                     "hover:bg-orange-50 rounded-full transition-colors"
                 ),
-                style={"color": "#7a5c4f"},
+                style={"color": "#6B7280"},
             ),
             rx.el.button(
                 "Drafts",
@@ -991,7 +991,7 @@ def dashboard_page() -> rx.Component:
                     "px-5 py-2 text-sm font-medium bg-transparent "
                     "hover:bg-orange-50 rounded-full transition-colors"
                 ),
-                style={"color": "#7a5c4f"},
+                style={"color": "#6B7280"},
             ),
             rx.el.button(
                 "Templates",
@@ -999,10 +999,10 @@ def dashboard_page() -> rx.Component:
                     "px-5 py-2 text-sm font-medium bg-transparent "
                     "hover:bg-orange-50 rounded-full transition-colors"
                 ),
-                style={"color": "#7a5c4f"},
+                style={"color": "#6B7280"},
             ),
             class_name="inline-flex items-center gap-1 px-1.5 py-1.5 rounded-full",
-            style={"background": "#fdf0e8", "border": "1px solid #f0ddd0"},
+            style={"background": "#F5F3FF", "border": "1px solid #DDD6FE"},
         ),
         class_name="mb-3",
     )
@@ -1024,7 +1024,7 @@ def dashboard_page() -> rx.Component:
             class_name="p-4",
         ),
         class_name="w-full h-screen overflow-y-auto",
-        style={"background": "#faf8f5"},
+        style={"background": "#F9FAFB"},
     )
 
     return rx.hstack(sidebar(), rx.box(content, width="100%"))

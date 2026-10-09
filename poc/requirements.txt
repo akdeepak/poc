@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+python-docx>=1.1
+llama-index-core
+llama-index-llms-huggingface
+llama-index-embeddings-huggingface
+torch
+transformers
+accelerate

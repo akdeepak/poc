@@ -1,17 +1,60 @@
 <svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
-  <title>AgentiQ primary logo</title>
+  <title>AgentiQ primary logo — Purple Theme</title>
+  <defs>
+    <linearGradient id="mark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="tail-grad-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <linearGradient id="node-grad-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <filter id="glow-logo">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
   <!-- Q agent-hub mark -->
   <g>
-    <circle cx="105" cy="100" r="42" fill="none" stroke="#6366F1" stroke-width="9"/>
-    <line x1="122" y1="118" x2="150" y2="150" stroke="#2DD4BF" stroke-width="9" stroke-linecap="round"/>
-    <circle cx="150" cy="150" r="7" fill="#2DD4BF"/>
-    <line x1="105" y1="100" x2="86" y2="82" stroke="#6366F1" stroke-width="3"/>
-    <line x1="105" y1="100" x2="124" y2="80" stroke="#6366F1" stroke-width="3"/>
-    <circle cx="105" cy="100" r="8" fill="#6366F1"/>
-    <circle cx="86" cy="82" r="5" fill="#2DD4BF"/>
-    <circle cx="124" cy="80" r="5" fill="#2DD4BF"/>
+    <!-- Main Q circle -->
+    <circle cx="100" cy="95" r="40" fill="none" stroke="url(#mark-grad)" stroke-width="8.5"/>
+
+    <!-- Q tail -->
+    <line x1="120" y1="116" x2="150" y2="148" stroke="url(#tail-grad-logo)" stroke-width="8.5" stroke-linecap="round" filter="url(#glow-logo)"/>
+
+    <!-- Tail node -->
+    <circle cx="150" cy="148" r="7.5" fill="url(#node-grad-logo)" filter="url(#glow-logo)"/>
+
+    <!-- Agent spokes -->
+    <line x1="100" y1="95" x2="80" y2="74" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <line x1="100" y1="95" x2="122" y2="74" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <line x1="100" y1="95" x2="78" y2="106" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Center hub -->
+    <circle cx="100" cy="95" r="8" fill="url(#mark-grad)"/>
+    <circle cx="100" cy="95" r="4" fill="white"/>
+
+    <!-- Agent nodes -->
+    <circle cx="80" cy="74" r="5.5" fill="url(#node-grad-logo)" filter="url(#glow-logo)"/>
+    <circle cx="122" cy="74" r="5.5" fill="url(#node-grad-logo)" filter="url(#glow-logo)"/>
+    <circle cx="78" cy="106" r="4" fill="url(#node-grad-logo)" opacity="0.6"/>
   </g>
+
   <!-- Wordmark -->
-  <text x="205" y="115" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-0.5" fill="#0F172A">Agenti<tspan fill="#6366F1">Q</tspan></text>
-  <text x="207" y="140" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="3" fill="#64748B">ENTERPRISE AI AGENTS</text>
+  <text x="195" y="108" font-family="'Outfit', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" letter-spacing="-1" fill="#1a1139">
+    Agenti<tspan fill="#7C3AED">Q</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="197" y="134" font-family="'Outfit', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="3.5" fill="#9CA3AF">
+    ENTERPRISE AI AGENTS
+  </text>
 </svg>
